@@ -1,13 +1,13 @@
 import { Plugin } from 'vue'
-import type Keycloak from 'keycloak-js'
+import type { KeycloakConfig, KeycloakInitOptions } from 'keycloak-js'
 import { defaultInitConfig } from './const'
 import { createKeycloak, initKeycloak } from './keycloak'
 import { isPromise, isFunction, isNil, isString } from './utils'
 import { loadJsonConfig } from './config'
 
 interface KeycloakPluginConfig {
-  config: Keycloak.KeycloakConfig
-  initOptions?: Keycloak.KeycloakInitOptions
+  config: KeycloakConfig
+  initOptions?: KeycloakInitOptions
 }
 
 type KeycloakConfigFactory = () => KeycloakPluginConfig

@@ -54,6 +54,7 @@ export async function updateToken(): Promise<string> {
 }
 
 export function createKeycloak(config: Keycloak.KeycloakConfig | string): Keycloak.KeycloakInstance {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   $keycloak = new Keycloak(config)
   return getKeycloak()
