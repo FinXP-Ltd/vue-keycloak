@@ -4,7 +4,7 @@ import { isNil } from './utils'
 
 type KeycloakInstance = Keycloak.KeycloakInstance | undefined
 
-let $keycloak: KeycloakInstance = undefined
+let $keycloak!: KeycloakInstance
 
 export async function isTokenReady(): Promise<void> {
   return new Promise(resolve => checkToken(resolve))
@@ -54,7 +54,8 @@ export async function updateToken(): Promise<string> {
 }
 
 export function createKeycloak(config: Keycloak.KeycloakConfig | string): Keycloak.KeycloakInstance {
-  $keycloak = Keycloak(config)
+  //@ts-ignore
+  $keycloak = new Keycloak(config)
   return getKeycloak()
 }
 
